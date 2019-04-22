@@ -6,7 +6,7 @@
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 17:42:19 by thallot           #+#    #+#             */
-/*   Updated: 2019/04/17 16:25:25 by thallot          ###   ########.fr       */
+/*   Updated: 2019/04/22 10:37:48 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char		*ft_read_line(int fd, char *str)
 		tmp = str;
 		str = ft_strjoin(str, buffer);
 		ft_memdel((void **)&tmp);
-		if (cursor == 0 && ft_strlen(buffer) == 0)
+		if ((cursor == 0 && ft_strlen(buffer) == 0) || ft_strchr(buffer, '\n'))
 			break ;
 	}
 	return (str);
