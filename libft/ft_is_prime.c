@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/02/10 10:41:07 by thallot           #+#    #+#             */
+/*   Updated: 2019/02/11 08:55:02 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+int	ft_is_prime(int nb)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	long int i;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	if (nb <= 3)
+	{
+		if (nb == 2 || nb == 3)
+			return (1);
+		return (0);
+	}
+	else if (nb % 2 == 0 || nb % 3 == 0)
+		return (0);
+	i = 5;
+	while (i * i <= nb)
+	{
+		if (nb % i == 0 || nb % (i + 2) == 0)
+			return (0);
+		i = i + 6;
+	}
+	return (1);
+}

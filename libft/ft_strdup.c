@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/01 15:33:52 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/15 17:38:51 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include <stdlib.h>
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+char	*ft_strdup(const char *s1)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	int		i;
+	char	*dest;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	if (!(dest = (char *)malloc(sizeof(*dest) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}

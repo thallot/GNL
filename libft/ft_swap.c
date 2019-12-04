@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/02/08 16:50:44 by thallot           #+#    #+#             */
+/*   Updated: 2019/02/08 16:51:43 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+void	ft_swap(int *a, int *b)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	int c;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	c = *a;
+	*a = *b;
+	*b = c;
+}

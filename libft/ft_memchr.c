@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/03 10:19:03 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/08 13:25:54 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include <string.h>
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	size_t	i;
+	char	*string;
+	char	*ptr;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	string = (char *)s;
+	ptr = NULL;
+	i = 0;
+	while (ptr == NULL && i < n)
+	{
+		if (string[i] == (char)c)
+			ptr = string + i;
+		i++;
+	}
+	return (ptr);
+}

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/04 12:01:19 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/08 13:33:58 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	int i;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	if (!s1 && !s2)
+		return (1);
+	else if (!s1 || !s2)
+		return (0);
+	else
+	{
+		if (ft_strncmp(s1, s2, n) == 0)
+			return (1);
+		else
+			return (0);
+	}
+}

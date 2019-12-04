@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/08 09:45:33 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/18 14:17:14 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+void	ft_putnbr(int i)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	unsigned int z;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	if (i < 0)
+	{
+		ft_putchar('-');
+		z = -i;
+	}
+	else
+		z = i;
+	if (z >= 10)
+		ft_putnbr(z / 10);
+	ft_putchar((z % 10) + 48);
+}

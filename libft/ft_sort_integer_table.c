@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/02/27 19:03:04 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/09 15:49:38 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include <string.h>
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+void	ft_sort_integer_table(int *tab, size_t size)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	size_t	i;
+	int		swap;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (i < (size - 1))
+	{
+		if (tab[i + 1] < tab[i])
+		{
+			swap = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = swap;
+			i = -1;
+		}
+		i++;
+	}
+}

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/02 14:49:50 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/08 13:26:32 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	char *new_dest;
+	char *new_src;
+	char *dest_over;
+	char *src_over;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	new_dest = dst;
+	new_src = (char *)src;
+	if (new_dest < new_src)
+		ft_memcpy(dst, src, len);
+	else
+	{
+		src_over = new_src + (len - 1);
+		dest_over = new_dest + (len - 1);
+		while (len--)
+			*dest_over-- = *src_over--;
+	}
+	return (dst);
+}

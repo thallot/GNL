@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thallot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 17:42:58 by thallot           #+#    #+#             */
-/*   Updated: 2019/05/03 14:29:22 by thallot          ###   ########.fr       */
+/*   Created: 2019/04/03 15:32:42 by thallot           #+#    #+#             */
+/*   Updated: 2019/04/22 10:09:19 by thallot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include <string.h>
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# define BUFF_SIZE 32
-
-typedef struct			s_gnl
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char				*str;
-	int					fd;
-}						t_file;
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	*str2;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	str = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (str[i] == str2[i] && str[i] != '\0' && str2[i] != '\0' && i < n - 1)
+		i++;
+	return (str[i] - str2[i]);
+}
